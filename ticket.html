@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Ticket</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Movie Ticket</h1>
+
+        <div id="ticket" class="ticket">
+            <img src="logo.png" alt="Logo" class="logo">
+            
+            <div class="ticket-details">
+                <h2>ACM Movie Ticket</h2>
+                <p id="ticketName"></p>
+                <p id="ticketBranch"></p>
+                <p id="ticketPhone"></p>
+            </div>
+        </div>
+
+        <button onclick="downloadTicket()">Download PDF</button>
+    </div>
+
+    <!-- Include jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        // Function to extract URL parameters
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                name: params.get('name'),
+                branch: params.get('branch'),
+                phone: params.get('phone')
+            };
+        }
+
+        // Function to populate the ticket with user details
+        function displayTicket() {
+            const { name, branch, phone } = getQueryParams();
+
+            if (name && branch && phone) {
+                document.getElementById('ticketName').innerText = `Name: ${name}`;
+                document.getElementById('ticketBranch').innerText = `Branch: ${branch}`;
+                document.getElementById('ticketPhone').innerText = `Phone: ${phone}`;
+            } else {
+                alert('Missing ticket information.');
+            }
+        }
+
+        // Function to download the ticket as a PDF
+        function downloadTicket() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            const name = document.getElementById('ticketName').innerText;
+            const branch = document.getElementById('ticketBranch').innerText;
+            const phone = document.getElementById('ticketPhone').innerText;
+
+            // Add logo image
+            const img = new Image();
+            img.src = 'images/logo.png'; // Path to your logo image
+            img.onload = function() {
+                doc.addImage(img, 'PNG', 10, 10, 20, 20); // Add the logo at the top-left
+
+                // Add the ticket text
+                doc.setFontSize(18);
+                doc.text('Movie Ticket', 85, 20);
+
+                doc.setFontSize(14);
+                doc.text(name, 20, 50);
+                doc.text(branch, 20, 60);
+                doc.text(phone, 20, 70);
+
+                // Save the PDF
+                doc.save('movie_ticket.pdf');
+            };
+        }
+
+        // Populate the ticket on page load
+        window.onload = displayTicket;
+    </script>
+</body>
+</html>
