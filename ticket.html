@@ -11,13 +11,30 @@
         <h1>Your Movie Ticket</h1>
 
         <div id="ticket" class="ticket">
-            <img src="logo.png" alt="Logo" class="logo">
+            <div class="ticket-header">
+                <img src="logo.png" alt="Logo" class="logo">
+                <h2>ACM Movie Ticket</h2>
+            </div>
             
             <div class="ticket-details">
-                <h2>ACM Movie Ticket</h2>
-                <p id="ticketName"></p>
-                <p id="ticketBranch"></p>
-                <p id="ticketPhone"></p>
+                <!-- Left Section: User details -->
+                <div class="left-section">
+                    <p id="ticketName">Name: </p>
+                    <p id="ticketBranch">Branch: </p>
+                    
+                </div>
+
+                <!-- Center Section: Movie details -->
+                <div class="center-section">
+                    <p id="movieName">Movie: Souce Code</p>
+                    <p id="venue">Venue: APJ HALL</p>
+                    <p id="time">Time: 4:30 PM</p>
+                </div>
+
+                <!-- Right Section: Image -->
+                <div class="right-section">
+                    <img src="cinema.jpg" alt="Cinema" class="cinema-img">
+                </div>
             </div>
         </div>
 
@@ -48,35 +65,6 @@
             } else {
                 alert('Missing ticket information.');
             }
-        }
-
-        // Function to download the ticket as a PDF
-        function downloadTicket() {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-
-            const name = document.getElementById('ticketName').innerText;
-            const branch = document.getElementById('ticketBranch').innerText;
-            const phone = document.getElementById('ticketPhone').innerText;
-
-            // Add logo image
-            const img = new Image();
-            img.src = 'images/logo.png'; // Path to your logo image
-            img.onload = function() {
-                doc.addImage(img, 'PNG', 10, 10, 20, 20); // Add the logo at the top-left
-
-                // Add the ticket text
-                doc.setFontSize(18);
-                doc.text('Movie Ticket', 85, 20);
-
-                doc.setFontSize(14);
-                doc.text(name, 20, 50);
-                doc.text(branch, 20, 60);
-                doc.text(phone, 20, 70);
-
-                // Save the PDF
-                doc.save('movie_ticket.pdf');
-            };
         }
 
         // Populate the ticket on page load

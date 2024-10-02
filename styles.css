@@ -16,10 +16,6 @@ h1 {
     color: #005f99;
 }
 
-form {
-    margin-bottom: 20px;
-}
-
 /* Ticket styling */
 .ticket {
     background-color: #e0f7fa;
@@ -27,75 +23,92 @@ form {
     padding: 20px;
     border: 2px dashed #0077b6;
     border-radius: 10px;
-    width: 350px;
-    margin: 20px auto;
+    width: 550px;
+    margin: 15px auto;
     position: relative;
+    box-sizing: border-box;
 }
 
-/* Logo styling */
-.logo {
-    position: absolute;
-    top: 10px;
-    left: 10px;
+/* Logo and heading strip */
+.ticket-header {
+    background-color: #99cfff; /* Lighter blue */
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+    width: calc(100% + 36px);
+    position: relative;
+    left: -18px;
+    top: -18px;
+    justify-content: flex-start;
+    margin: 0;
+    border-radius: 10px 10px 0 0;
+    box-sizing: border-box;
+}
+
+/* Logo styling inside the header */
+.ticket-header .logo {
+    margin-left: 20px;
     width: 50px;
+    height: auto;
 }
 
 /* Ticket content styling */
-.ticket-details h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.ticket-details p {
-    font-size: 18px;
-    margin: 5px 0;
-}
-
-/* Form container */
-#ticketForm {
+.ticket-details {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-top: 20px;
+    position: relative;
 }
 
-/* Form group */
-.form-group {
-    width: 100%;
-    margin-bottom: 15px;
+/* Left section: User details */
+.left-section {
+    text-align: left;
+    width: 25%; /* Left section width */
+    font-size: 14px;
 }
 
-/* Labels */
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
+.left-section p {
+    margin: 10px 0;
+}
+
+/* Center section: Movie details */
+.center-section {
+    text-align: left;
+    width: 50%; /* Center section width */
+    font-size: 18px; /* Increased font size for emphasis */
+}
+
+.center-section p {
+    margin: 10px 0;
+    font-size: 18px; /* Large text for movie details */
     font-weight: bold;
-    font-size: 16px;
+    padding-left: 35px;
 }
 
-/* Input fields */
-.form-group input {
-    width: 100%;
-    padding: 15px; /* Increased padding for larger input boxes */
-    font-size: 16px; /* Larger font size */
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+/* Right section: Cinema image */
+.right-section {
+    width: 25%; /* Right section width */
+    text-align: right;
 }
 
-/* Submit button styling */
-button[type="submit"] {
+.right-section .cinema-img {
+    width: 80px; /* Adjust the size of the cinema image */
+    height: auto;
+}
+
+/* Button styling */
+button {
     padding: 12px 24px;
-    background-color: #0077b6; /* Blue background */
+    background-color: #0077b6;
     color: #fff;
-    font-size: 16px; /* Bigger text for the button */
+    font-size: 16px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
-button[type="submit"]:hover {
-    background-color: #005f99; /* Darker blue on hover */
+button:hover {
+    background-color: #005f99;
 }
