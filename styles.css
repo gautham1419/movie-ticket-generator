@@ -14,16 +14,27 @@ body {
 
 h1 {
     color: #005f99;
+    transition: color 0.5s; /* Smooth transition for color change */
+    font-size: 32px; /* Increased font size for the heading */
+}
+h5 {
+    color: #005f99;
+    transition: color 0.5s; /* Smooth transition for color change */
+    font-size: 38px; /* Increased font size for the heading */
+}
+
+h1:hover {
+    color: #0077b6; /* Change color on hover */
 }
 
 /* Ticket styling */
 .ticket {
     background-color: #e0f7fa;
     color: #005f99;
-    padding: 20px;
+    padding: 30px; /* Increased padding for larger boxes */
     border: 2px dashed #0077b6;
     border-radius: 10px;
-    width: 550px;
+    width: 600px; /* Increased width for the ticket box */
     margin: 15px auto;
     position: relative;
     box-sizing: border-box;
@@ -35,12 +46,12 @@ h1 {
     color: white;
     display: flex;
     align-items: center;
-    padding: 5px 0;
+    padding: 10px 0; /* Increased padding for a larger header */
     width: calc(100% + 36px);
     position: relative;
     left: -18px;
     top: -18px;
-    justify-content: flex-start;
+    justify-content: space-between; /* Space between logo and heading */
     margin: 0;
     border-radius: 10px 10px 0 0;
     box-sizing: border-box;
@@ -49,18 +60,21 @@ h1 {
 /* Logo styling inside the header */
 .ticket-header .logo {
     margin-left: 20px;
-    width: 50px;
+    width: 70px; /* Increased logo size */
     height: auto;
 }
+
 .ticket-header .cinema-logo {
-    width: 50px; /* Adjust size as needed */
+    width: 70px; /* Adjust size as needed */
     height: auto;
     margin-left: auto; /* Pushes the cinema logo to the right */
 }
+
 .ticket-header h2 {
     flex: 1; /* Allow the title to take available space */
     text-align: center; /* Center align the text */
     margin: 0; /* Remove default margin */
+    font-size: 24px; /* Increased font size for the heading */
 }
 
 /* Ticket content styling */
@@ -75,50 +89,63 @@ h1 {
 /* Left section: User details */
 .left-section {
     text-align: left;
-    width: 25%; /* Left section width */
-    font-size: 14px;
+    width: 30%; /* Increased left section width */
+    font-size: 16px; /* Increased font size */
 }
 
 .left-section p {
-    margin: 10px 0;
+    margin: 15px 0; /* Increased space between paragraphs */
 }
 
 /* Center section: Movie details */
 .center-section {
     text-align: left;
-    width: 50%; /* Center section width */
-    font-size: 18px; /* Increased font size for emphasis */
+    width: 40%; /* Increased center section width */
+    font-size: 20px; /* Increased font size for emphasis */
+    padding-left: 20px; /* Add padding to move text slightly right */
 }
 
 .center-section p {
-    margin: 10px 0;
-    font-size: 18px; /* Large text for movie details */
-    font-weight: bold;
-    padding-left: 35px;
+    margin: 15px 0; /* Increased space between paragraphs */
+    font-weight: bold; /* Make text bold */
 }
 
 /* Right section: Cinema image */
 .right-section {
-    width: 25%; /* Right section width */
+    width: 30%; /* Increased right section width */
     text-align: right;
 }
 
 .right-section .cinema-img {
-    width: 80px; /* Adjust the size of the cinema image */
+    width: 100px; /* Adjust the size of the cinema image */
     height: auto;
 }
 
 /* Button styling */
 button {
-    padding: 12px 24px;
+    padding: 15px 28px; /* Increased padding for larger button */
     background-color: #0077b6;
     color: #fff;
-    font-size: 16px;
+    font-size: 18px; /* Increased font size */
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition for button hover */
 }
 
 button:hover {
     background-color: #005f99;
+    transform: scale(1.05); /* Slightly increase size on hover */
+}
+/* Fade-in animation */
+.fade-in {
+    opacity: 0; /* Start fully transparent */
+    animation: fadeIn 5s forwards; /* Fade in over 2 seconds */
+}
+
+/* Keyframes for the fade-in animation */
+@keyframes fadeIn {
+    to {
+        opacity: 1; /* End fully opaque */
+    }
 }
